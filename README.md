@@ -55,6 +55,9 @@ cd gblog
 ```bash
 vault write secret/postgres @creds     ## this way creds don't go to the shell history
 ```
+```bash
+Success! Data written to: secret/postgres
+```
 
 At this point the file `creds` can be deleted.
 The reason we did it via file is not to leave creds traces in bash/shell history.
