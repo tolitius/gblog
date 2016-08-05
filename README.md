@@ -20,11 +20,11 @@ docker logs dev-vault
 ```
 will show the vault's logs:
 
->export VAULT_ADDR='http://0.0.0.0:8200'
+>_export VAULT_ADDR='http://0.0.0.0:8200'_
 
->...
+>_..._
 
->Root Token: 75de9b20-16fa-5a1e-2e9a-39c86caef504
+>_Root Token: 75de9b20-16fa-5a1e-2e9a-39c86caef504_
 
 
 we would need 2 pieces of data from the above, to export a root token and a host address:
@@ -94,6 +94,10 @@ You can check whether the creds were successfully written to Vault:
  "root-pass": "CHANGE-ME-root-pass",
  "root-user": "postgres"}
 ```
+
+> _NOTE: for these vault scripts to work you would need [jq](https://stedolan.github.io/jq/) (i.e. to parse JSON responses from Vault)._
+
+> _`brew install jq` or `apt-get install jq` or similar_
 
 ### Running it
 
