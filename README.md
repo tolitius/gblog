@@ -70,7 +70,7 @@ in this demo case it would be the same IP as you set for the `VAULT_HOST`
 
 > if you are unsure what your host IP is, just ask
 ```bash
-sudo tools/what-is-my-host-ip.sh
+./tools/what-is-my-host-ip.sh
 192.168.1.12                   ## this is an example output, your IP most likely will be different
 ```
 
