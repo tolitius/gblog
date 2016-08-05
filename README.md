@@ -18,23 +18,16 @@ docker run --name=dev-vault -e 'VAULT_DEV_LISTEN_ADDRESS=0.0.0.0:8200' -p 8200:8
 ```bash
 docker logs dev-vault
 ```
+will show the vault's logs:
 
-```bash
-...
-The only step you need to take is to set the following
-environment variables:
+>export VAULT_ADDR='http://0.0.0.0:8200'
 
-    export VAULT_ADDR='http://0.0.0.0:8200'
+>...
 
-The unseal key and root token are reproduced below in case you
-want to seal/unseal the Vault or play with authentication.
+>Root Token: 75de9b20-16fa-5a1e-2e9a-39c86caef504
 
-Unseal Key: 119ce7aa59eea1d892fbaaf6d99120edeff184690655e2ef583381f85e0a0323
-Root Token: 75de9b20-16fa-5a1e-2e9a-39c86caef504
-...
-```
 
-we would need 2 pieces of data from the above, a root token and a host address:
+we would need 2 pieces of data from the above, to export a root token and a host address:
 
 ```bash
 export VAULT_TOKEN=75de9b20-16fa-5a1e-2e9a-39c86caef504
