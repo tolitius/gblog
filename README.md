@@ -62,13 +62,13 @@ DATABASE_URL=postgres://ghost:CHANGE-ME-TOO-ghost-pass@$REPLACE_ME_HOST:5432
 ...
 ```
 
-#### add `VAULT_HOST`
+#### Step 1: add `VAULT_HOST`
 in this case, since vault is run on the same host, just set the host IP (the IP of the host you are typing this commands at)
 
-#### replace `$REPLACE_ME_HOST` with a host IP 
+#### Step 2: replace `$REPLACE_ME_HOST` with a host IP 
 in this demo case it would be the same IP as you set for the `VAULT_HOST`
 
-if you are unsure what your host IP is, just ask:
+> if you are unsure what your host IP is, just ask
 ```bash
 sudo tools/what-is-my-host-ip.sh
 192.168.1.12                   ## this is an example output, your IP most likely will be different
