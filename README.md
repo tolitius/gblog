@@ -86,6 +86,13 @@ sudo ./what-is-my-host-ip.sh
 192.168.1.12                   ## this is an example output, your IP most likely will be different
 ```
 
+having this IP in mind, the above two variables would look like:
+
+```bash
+VAULT_HOST=192.168.1.12
+DATABASE_URL=postgres://ghost:CHANGE-ME-TOO-ghost-pass@192.168.1.12:5432
+```
+
 ### Running it
 
 ```bash
