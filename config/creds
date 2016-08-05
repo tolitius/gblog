@@ -1,4 +1,6 @@
-{"root-user": "postgres",
- "root-pass": "CHANGE-ME-root-pass",
- "ghost-user": "ghost",
- "ghost-pass": "CHANGE-ME-TOO-ghost-pass"}
+{"root": {"username": "postgres",
+          "password": "CHANGE-ME-root-pass"},
+ "users": [{"username": "ghost",
+            "password": "CHANGE-ME-TOO-ghost-pass"}],
+ "dbs": [{"name": "ghost_blog",
+          "users": ["ghost"]}]}
