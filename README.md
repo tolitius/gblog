@@ -48,7 +48,7 @@ cd gblog
 ```bash
 vi .env
 ```
-```bash
+```properties
 VAULT_HOST=
 ...
 DATABASE_URL=postgres://ghost:CHANGE-ME-TOO-ghost-pass@$REPLACE_ME_HOST:5432
@@ -69,7 +69,7 @@ in this demo case it would be the same IP as you set for the `VAULT_HOST`
 
 having this IP in mind, the above two variables would look like:
 
-```bash
+```properties
 VAULT_HOST=192.168.1.12
 DATABASE_URL=postgres://ghost:CHANGE-ME-TOO-ghost-pass@192.168.1.12:5432
 ```
