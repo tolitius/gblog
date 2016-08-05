@@ -68,18 +68,10 @@ The reason we did it via file is not to leave creds traces in bash/shell history
 vi .env
 ```
 ```bash
-## env for postgres
-VAULT_HOST=                                       ## <<< set to a vault host/ip accessible from a docker container
-PGDATA=/var/lib/postgresql/data                   ## this is going to be mounted to
-PG_HOST_DATA=./var/lib/postgres/data/pgdata       ## to this: change it to a more secure location if needed
-PG_HOST_PORT=5432
-
-## env for ghost blog
-GHOST_HOST_DATA=./var/lib/ghost/blog              ## ghost root will be mounted to this. change it to a more secure location if needed
-GHOST_HOST_PORT=2368
-NODE_ENV=production
-DATABASE_URL=postgres://ghost:CHANGE-ME-TOO-ghost-pass@$REPLACE_ME_HOST:5432     ## <<< replace creds. also the "$REPLACE_ME_HOST" with a docker host IP
-## ^^^ waiting for https://github.com/TryGhost/Ghost/issues/7177
+VAULT_HOST=
+...
+DATABASE_URL=postgres://ghost:CHANGE-ME-TOO-ghost-pass@$REPLACE_ME_HOST:5432
+...
 ```
 
 #### add `VAULT_HOST`
