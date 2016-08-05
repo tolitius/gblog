@@ -50,18 +50,6 @@ git clone https://github.com/tolitius/gblog
 cd gblog
 ```
 
-### Write creds to Vault
-
-```bash
-vault write secret/postgres @config/creds     ## this way creds don't go to the shell history
-```
-```bash
-Success! Data written to: secret/postgres
-```
-
-At this point the file `./config/creds` can be deleted.
-The reason we did it via file is not to leave creds traces in bash/shell history.
-
 ### Two step config
 
 ```bash
@@ -93,14 +81,34 @@ VAULT_HOST=192.168.1.12
 DATABASE_URL=postgres://ghost:CHANGE-ME-TOO-ghost-pass@192.168.1.12:5432
 ```
 
+### Write creds to Vault
+
+```bash
+./tools/vault/vault-write.sh /secret/postgres config/creds
+```
+
+At this point the file `./config/creds` can be deleted.
+The reason we did it via file (rather than providing creds in clear) is not to leave creds traces in bash/shell history.
+
+You can check whether the creds were successfully written to Vault:
+
+```bash
+./tools/vault/vault-read.sh /secret/postgres
+```
+```json
+{"ghost-pass": "CHANGE-ME-TOO-ghost-pass",
+ "ghost-user": "ghost",
+ "root-pass": "CHANGE-ME-root-pass",
+ "root-user": "postgres"}
+```
+
 ### Running it
 
 ```bash
-export ACCESS_TOKEN=$(vault read -wrap-ttl=600s -field=wrapping_token secret/postgres | cat); \
-docker-compose up
+export ACCESS_TOKEN=$(./tools/vault/wrap-token.sh /secret/postgres); docker-compose up
 ```
 
-notice we are using Vault to create a temp token that is passed to docker containers.
+notice we are using Vault to create a temp token (wrapping our "secret") that is passed to docker containers.
 
 Ghost running on PostgreSQL is up and ready for you: [http://localhost:2368/](http://localhost:2368/)
 
