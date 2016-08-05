@@ -18,11 +18,13 @@ services:
     links:
       - db
     volumes:
-      - ./config.js:/var/lib/ghost/config.js
+      - ./config/config.js:/var/lib/ghost/config.js
+      - ./tools/wait-for-it.sh:/wait-for-it.sh
       - "${GHOST_HOST_DATA}:/var/lib/ghost"
     ports:
         - "${GHOST_HOST_PORT}:2368"
     restart: always
+    entrypoint: /wait-for-it.sh -t 200 db:5432 --strict -- /entrypoint.sh npm start
     environment:
       NODE_ENV: production
       DATABASE_URL: ${DATABASE_URL}  ## waiting for https://github.com/TryGhost/Ghost/issues/7177

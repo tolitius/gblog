@@ -53,13 +53,13 @@ cd gblog
 ### Write creds to Vault
 
 ```bash
-vault write secret/postgres @creds     ## this way creds don't go to the shell history
+vault write secret/postgres @config/creds     ## this way creds don't go to the shell history
 ```
 ```bash
 Success! Data written to: secret/postgres
 ```
 
-At this point the file `creds` can be deleted.
+At this point the file `./config/creds` can be deleted.
 The reason we did it via file is not to leave creds traces in bash/shell history.
 
 ### Two step config
@@ -82,7 +82,7 @@ in this demo case it would be the same IP as you set for the `VAULT_HOST`
 
 if you are unsure what your host IP is, just ask:
 ```bash
-sudo ./what-is-my-host-ip.sh
+sudo tools/what-is-my-host-ip.sh
 192.168.1.12                   ## this is an example output, your IP most likely will be different
 ```
 
