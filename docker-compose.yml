@@ -1,0 +1,28 @@
+version: '2'
+services:
+  db:
+    image: tolitius/psql-vault:latest
+    volumes:
+      - "${PG_HOST_DATA}:${PGDATA}"
+    ports:
+      - "${PG_HOST_PORT}:5432"
+    restart: always
+    environment:
+      VAULT_HOST: ${VAULT_HOST}
+      VAULT_TOKEN: ${ACCESS_TOKEN}
+
+  ghost:
+    depends_on:
+      - db
+    image: ghost:0.9.0
+    links:
+      - db
+    volumes:
+      - ./config.js:/var/lib/ghost/config.js
+      - "${GHOST_HOST_DATA}:/var/lib/ghost"
+    ports:
+        - "${GHOST_HOST_PORT}:2368"
+    restart: always
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: ${DATABASE_URL}  ## waiting for https://github.com/TryGhost/Ghost/issues/7177
