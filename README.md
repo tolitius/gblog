@@ -45,20 +45,18 @@ cd gblog
 
 ### One step config
 
-```bash
-vi .env
-```
->_VAULT\_HOST=_
-
->_..._
-
-set `VAULT_HOST` to the host IP.
-In this case, since vault is run on the same host, just set the host IP (the IP of the host you are typing this commands at).
+Open `.env` file, and since Vault is running on the _same host_ in this case, set `VAULT_HOST` to the _host IP_.
 
 > if you are unsure what your host IP is, just ask
 ```bash
 ./tools/what-is-my-host-ip.sh
 192.168.1.12                    ## this is an example output, your IP most likely will be different
+```
+
+Pretending `192.168.1.12` is your host IP, a `VAULT_HOST` would look like:
+
+```properties
+VAULT_HOST=192.168.1.12
 ```
 
 ### Write creds to Vault
