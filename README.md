@@ -43,35 +43,22 @@ git clone https://github.com/tolitius/gblog
 cd gblog
 ```
 
-### Two step config
+### One step config
 
 ```bash
 vi .env
 ```
-```properties
-VAULT_HOST=
-...
-DATABASE_URL=postgres://ghost:CHANGE-ME-TOO-ghost-pass@$REPLACE_ME_HOST:5432
-...
-```
+>_VAULT\_HOST=_
 
-#### Step 1: add `VAULT_HOST`
-in this case, since vault is run on the same host, just set the host IP (the IP of the host you are typing this commands at)
+>_..._
 
-#### Step 2: replace `$REPLACE_ME_HOST` with a host IP 
-in this demo case it would be the same IP as you set for the `VAULT_HOST`
+set `VAULT_HOST` to the host IP.
+In this case, since vault is run on the same host, just set the host IP (the IP of the host you are typing this commands at).
 
 > if you are unsure what your host IP is, just ask
 ```bash
 ./tools/what-is-my-host-ip.sh
-192.168.1.12                   ## this is an example output, your IP most likely will be different
-```
-
-having this IP in mind, the above two variables would look like:
-
-```properties
-VAULT_HOST=192.168.1.12
-DATABASE_URL=postgres://ghost:CHANGE-ME-TOO-ghost-pass@192.168.1.12:5432
+192.168.1.12                    ## this is an example output, your IP most likely will be different
 ```
 
 ### Write creds to Vault
