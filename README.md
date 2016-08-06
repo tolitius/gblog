@@ -5,7 +5,9 @@ Both will have data mounted locally (i.e. outside of their containers).
 
 The real kicker here though is [Vault](https://www.vaultproject.io/).
 
-PostgreSQL credentials are securely written to Vault, and passed on to the docker container via a temporary Vault token (i.e. [Response Wrapping](https://www.vaultproject.io/docs/secrets/cubbyhole/index.html#response-wrapping))
+PostgreSQL credentials are securely written to Vault, and passed on to the docker container via a temporary Vault token (i.e. [Response Wrapping](https://www.vaultproject.io/docs/secrets/cubbyhole/index.html#response-wrapping)).
+
+The Vault capability is plugged in to `gblog` via [psql-vault](https://github.com/tolitius/psql-vault).
 
 # Show me
 
