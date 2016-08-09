@@ -1,7 +1,7 @@
 Stands up a [Ghost](https://ghost.org/) blog along with [PostgreSQL](https://www.postgresql.org/).
 Both will have data mounted locally (i.e. outside of their containers).
 
-# Ok, another blog, so what!?
+# Ok, another blog image, so what!?
 
 The real kicker here though is [Vault](https://www.vaultproject.io/).
 
